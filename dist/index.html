@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,19 +7,48 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div id="head">
         <p>Todo List</p>
+        <button id="addTask">Add Task</button>
     </div>
 
     <div id="middle">
         <div id="navBar">
             <div id="upperSection">
-                <button>Home</button>
+                <button id="homeButton">Home</button>
             </div>
-            <div id="lowerSection"></div>
+            <div id="lowerSection">
+                <p>Projects</p>
+                <button class="createProjectButton">Create Project</button>
+                <button class="projectButton">Work</button>
+                <button class="projectButton">Web Development</button>
+                <button class="projectButton">Java</button>
+            </div>
         </div>
-        <div id="display"></div>
+        <div id="display">
+            <div class="task">
+                <div class="firstPart">
+                    <p class="title">Learn JavaScript</p>
+                    <p>Complete the first part of Odin Project</p>
+                </div>
+                <div class="secondPart">
+                    <p class="date">28/12/1998</p>
+                    <p>Important</p>
+                </div>
+            </div>
+            <div class="task">
+                <div class="firstPart">
+                    <p class="title">Learn Java</p>
+                    <p>Finish mooc.fi</p>
+                </div>
+                <div class="secondPart">
+                    <p class="date">Tomorrow</p>
+                    <p>Low Priority</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="footer"></div>
@@ -26,4 +56,5 @@
 
     <script src="main.js"></script>
 </body>
+
 </html>
