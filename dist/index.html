@@ -11,43 +11,45 @@
 <body>
     <div id="head">
         <p>Todo List</p>
-        <button id="addTask">Add Task</button>
+        <button id="addTask" data-id="home">Add Task</button>
     </div>
 
     <div id="middle">
+        <div id="modalCreateProject">
+            <div id="modalContent">
+                <div id="projectName">
+                <p>Project Name</p>
+                <input type="text" value="" placeholder="Project Name" id="projectNameInput">
+                </div>
+                <input type="submit" value="Submit" id="submitProjectButton">
+
+            </div>
+        </div>
+        <div id="modalAddTask">
+            <div id="modalContentTask">
+                <p>Name of the Task</p>
+                <input type="text" value="" placeholder="Name" id="taskNameInput" >
+                <p>Short description of the Task</p>
+                <input type="text" value="" placeholder="Description" id="taskDescriptionInput">
+                <p>Date of the Task</p>
+                <input type="date" name="trip-start" value="" id="taskDateInput">
+                <p>Priority of the Task</p>
+                <input type="text" value="" placeholder="Priority" id="priorityInput">
+                <input type="submit" value="Submit" id="submitTaskButton">
+            </div>
+        </div>
         <div id="navBar">
             <div id="upperSection">
-                <button id="homeButton">Home</button>
+                <button id="homeButton" data-id="home">Home</button>
             </div>
             <div id="lowerSection">
                 <p>Projects</p>
                 <button class="createProjectButton">Create Project</button>
-                <button class="projectButton">Work</button>
-                <button class="projectButton">Web Development</button>
-                <button class="projectButton">Java</button>
+                
             </div>
         </div>
         <div id="display">
-            <div class="task">
-                <div class="firstPart">
-                    <p class="title">Learn JavaScript</p>
-                    <p>Complete the first part of Odin Project</p>
-                </div>
-                <div class="secondPart">
-                    <p class="date">28/12/1998</p>
-                    <p>Important</p>
-                </div>
-            </div>
-            <div class="task">
-                <div class="firstPart">
-                    <p class="title">Learn Java</p>
-                    <p>Finish mooc.fi</p>
-                </div>
-                <div class="secondPart">
-                    <p class="date">Tomorrow</p>
-                    <p>Low Priority</p>
-                </div>
-            </div>
+           
         </div>
     </div>
 
