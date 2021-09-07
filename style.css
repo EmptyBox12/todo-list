@@ -53,6 +53,120 @@
     flex: 1;
 
 }
+#modalCreateProject{
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top:300px ;
+    height:100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+
+    
+
+
+}
+#modalContent{
+    position: relative;
+    margin: auto;
+    background-color: #fefefe;
+    display: flex;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 15px;
+    flex-direction: column;
+    justify-content: space-around;
+    height:25%;
+    width: 340px;
+    
+}
+
+#projectNameInput{
+    height: 30px;
+    font-size: 17px;
+    font-weight: 540;
+    border:black solid 1px;
+    border-radius: 9px;
+    outline: none;
+    padding-left: 7px;
+    
+}
+#projectName{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+#submitProjectButton{
+    height: 30px;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #bdc3c7;
+}
+#submitProjectButton:hover{
+    filter: brightness(0.95);
+}
+#submitProjectButton:active{
+    filter:brightness(0.9);
+}
+
+#modalAddTask{
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top:130px ;
+    height:100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+
+}
+#modalContentTask{
+    position: relative;
+    margin: auto;
+    background-color: #fefefe;
+    display: flex;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 15px;
+    flex-direction: column;
+    justify-content: space-around;
+    height:50%;
+    width: 340px;
+    
+}
+
+#taskNameInput, #taskDescriptionInput,#priorityInput,#taskDateInput{
+    height: 30px;
+    font-size: 17px;
+    font-weight: 540;
+    border:black solid 1px;
+    border-radius: 9px;
+    outline: none;
+    padding-left: 7px;
+    
+}
+
+#submitTaskButton{
+    margin-top: 10px;
+    height: 30px;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #bdc3c7;
+}
+#submitTaskButton:hover{
+    filter: brightness(0.95);
+}
+#submitTaskButton:active{
+    filter:brightness(0.9);
+}
+
 #display{
     height:97%;
     display: flex;
