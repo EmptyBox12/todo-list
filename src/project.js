@@ -12,4 +12,10 @@ export default class Project{
     getTaskList(){
         return this.taskList;
     }
+    getTask(index){
+        return this.taskList[index];
+    }
+    deleteTask(index){
+        this.taskList.splice(index,1);
+    }
 }
