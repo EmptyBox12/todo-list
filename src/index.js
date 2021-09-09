@@ -44,7 +44,7 @@ function projectButton() {
             let renderProject = projectList[item.getAttribute("data-id")];
             clearDisplay();
             renderTasks(renderProject);
-
+            
         });
     });
 
@@ -59,7 +59,8 @@ homeButton.addEventListener("click", () => {
 
 function renderTasks(project) {
     project.getTaskList().forEach(task => {
-        createTaskCard(task.getTitle(), task.getDescription(), task.getDate(), task.getPriority(), project.getTaskList().indexOf(task));
+        createTaskCard(task.getTitle(), task.getDescription(), task.getDate(), task.getPriority(), project.getTaskList().indexOf(task), task.isComplete());
+        completeButton(projectList.indexOf(project));
     });
 
 
@@ -93,7 +94,6 @@ submitTask.addEventListener("click", () => {
         renderTasks(projectList[id]);
 
     }
-
     addTaskModal.style.display = "none";
 });
 
@@ -101,4 +101,33 @@ submitTask.addEventListener("click", () => {
 function start() {
     renderTasks(home);
 }
+function completeButton(projectId) {
+    let completedButtons = document.querySelectorAll(".completedButton");
+    completedButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            let taskId = button.getAttribute("data-id");
+            console.log(taskId);
+            console.log(button);
+            if (taskId == "home") {
+
+            } else {
+                let task = projectList[projectId].getTask(taskId);
+                let selectedTask =document.querySelector(`[data-taskId="${taskId}"]`);
+                console.log(task.isComplete());
+                if(task.isComplete()==false){
+                    task.setCompleted(true);
+                    selectedTask.classList.add("completed");
+
+                } else if(task.isComplete()==true){
+                    task.setCompleted(false);
+                    selectedTask.classList.remove("completed");
+                    
+                }
+            }
+
+        });
+    });
+
+}
+
 start();

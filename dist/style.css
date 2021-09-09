@@ -193,9 +193,44 @@
 
 }
 .firstPart{
+    display: flex;
+    align-items: center;
     margin-left: 30px;
+    height:100%;
+
+}
+.firstButtons{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+.completedButton{
+    border-radius: 25px;
+    background-color: lawngreen;
+    border: none;
+    border: black 1px solid;
+}
+.deleteButton{
+    border-radius: 30px;
+    background-color: tomato;
+    border: none;
+    border: black 1px solid;
+}
+.deleteButton:hover,.completedButton:hover{
+    filter: brightness(0.9);
+}
+.deleteButton:active,.completedButton:active{
+    filter: brightness(0.8);
+}
+.firstText{
+    margin-left: 10px;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
+}
+.completed{
+    text-decoration:line-through black solid 2px;
 }
 .title{
     font-weight: bold;
