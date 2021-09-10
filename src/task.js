@@ -33,7 +33,7 @@ export default class Task {
     setPriority(newPriority) {
         this.priority = newPriority;
     }
-    setCompleted(complete) {
+    setCompleted = (complete) => {
         this.completed = complete;
     }
 

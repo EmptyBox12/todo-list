@@ -55,11 +55,9 @@ export default function createTaskCard(title, description, date,priority, id, co
     task.appendChild(secondPart);
     task.setAttribute("data-taskId", id);
     if(complete==true){
-        task.classList.add("completed");
-        console.log(complete);
+        task.classList.add("completed"); 
     } else{
         task.classList.remove("completed");
-        console.log(complete);
     }
 
     let display = document.querySelector("#display");

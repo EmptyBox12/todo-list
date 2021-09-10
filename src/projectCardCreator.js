@@ -6,6 +6,18 @@ export default function projectCardCreator(name, id) {
     projectButton.textContent=name;
     projectButton.setAttribute("data-id",id);
 
-    content.appendChild(projectButton);
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent="X";
+    deleteButton.classList.add("deleteProjectButton");
+    deleteButton.setAttribute("data-id",id);
+
+    let projectContainer = document.createElement("div");
+    projectContainer.classList.add("projectButtonContainer");
+    
+    projectContainer.setAttribute("data-id",id);
+    projectContainer.appendChild(deleteButton);
+    projectContainer.appendChild(projectButton);
+
+    content.appendChild(projectContainer);
     
 }

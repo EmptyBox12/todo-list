@@ -2,6 +2,7 @@ import Task from "./task.js";
 import Project from "./project.js";
 import projectCardCreator from "./projectCardCreator.js";
 import createTaskCard from "./taskCardCreator.js";
+import { deleteButton, completeButton } from "./buttons.js";
 
 const createProject = document.querySelector(".createProjectButton");
 const modalCreateProject = document.querySelector("#modalCreateProject");
@@ -33,6 +34,7 @@ submitProject.addEventListener("click", () => {
     projectList.push(newProject);
     projectCardCreator(newProject.getName(), projectList.indexOf(newProject));
     projectButton();
+    deleteProject();
     modalCreateProject.style.display = "none";
 });
 
@@ -44,7 +46,7 @@ function projectButton() {
             let renderProject = projectList[item.getAttribute("data-id")];
             clearDisplay();
             renderTasks(renderProject);
-            
+
         });
     });
 
@@ -60,7 +62,8 @@ homeButton.addEventListener("click", () => {
 function renderTasks(project) {
     project.getTaskList().forEach(task => {
         createTaskCard(task.getTitle(), task.getDescription(), task.getDate(), task.getPriority(), project.getTaskList().indexOf(task), task.isComplete());
-        completeButton(projectList.indexOf(project));
+        completeButton(projectList.indexOf(project), projectList, home);
+        deleteButton(projectList.indexOf(project), projectList, home);
     });
 
 
@@ -101,33 +104,19 @@ submitTask.addEventListener("click", () => {
 function start() {
     renderTasks(home);
 }
-function completeButton(projectId) {
-    let completedButtons = document.querySelectorAll(".completedButton");
-    completedButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            let taskId = button.getAttribute("data-id");
-            console.log(taskId);
-            console.log(button);
-            if (taskId == "home") {
-
-            } else {
-                let task = projectList[projectId].getTask(taskId);
-                let selectedTask =document.querySelector(`[data-taskId="${taskId}"]`);
-                console.log(task.isComplete());
-                if(task.isComplete()==false){
-                    task.setCompleted(true);
-                    selectedTask.classList.add("completed");
-
-                } else if(task.isComplete()==true){
-                    task.setCompleted(false);
-                    selectedTask.classList.remove("completed");
-                    
-                }
-            }
-
+function deleteProject() {
+    let deleteButtons = document.querySelectorAll(".deleteProjectButton");
+    deleteButtons.forEach(button =>{
+        button.addEventListener("click", ()=>{
+            let lowerSection = document.querySelector("#lowerSection");
+            let projectId = button.getAttribute("data-id");
+            let selectedProject = document.querySelector(`[data-id="${projectId}"]`);
+            lowerSection.removeChild(selectedProject);
+            projectList.splice(projectId, 1);
         });
     });
 
+    
 }
 
 start();

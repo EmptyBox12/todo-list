@@ -329,24 +329,34 @@
 .createProjectButton:active{
     filter: brightness(0.7);
 }
+.projectButtonContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    width:90%;
+    
+   
+}
 .projectButton{
     outline: none;
-    background-color: #bdc3c7;
     color: indigo;
+    background-color: #bdc3c7;
+    width: 100%;
     font-size: 17px;
     font-family:Arial, Helvetica, sans-serif;
     border: none;
     font-weight: bold;
-    margin-left: 10px;
-    width:90%;
-    text-align: start;
+    text-align: start;    
     padding-top: 5px;
+    padding-left: 5px;
     padding-bottom: 5px;
     border-radius: 7px;
-    margin-top: 10px;
+    
 }
 .projectButton:hover{
     filter: brightness(0.8);
+    cursor: default;
 }
 
 .projectButton:focus{
@@ -355,7 +365,21 @@
 .projectButton:active{
     filter: brightness(0.7);
 }
-
+.deleteProjectButton{
+    border-radius:50%;
+    height: 15px;
+    font-size: 7px;
+    font-weight: bold;
+    background-color: tomato;
+    border: none;
+    border: black 1px solid;
+}
+.deleteProjectButton:hover,.completedButton:hover{
+    filter: brightness(0.9);
+}
+.deleteProjectButton:active,.completedButton:active{
+    filter: brightness(0.8);
+}
 #footer{
     height: 5vh;
     background-color: #2c3e50;
