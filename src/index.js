@@ -105,14 +105,16 @@ function start() {
     renderTasks(home);
 }
 function deleteProject() {
+    //CHANGE DATA-ID OF PROJECTS. 
     let deleteButtons = document.querySelectorAll(".deleteProjectButton");
     deleteButtons.forEach(button =>{
         button.addEventListener("click", ()=>{
             let lowerSection = document.querySelector("#lowerSection");
             let projectId = button.getAttribute("data-id");
-            let selectedProject = document.querySelector(`[data-id="${projectId}"]`);
+            let selectedProject = document.querySelector(`.projectButtonContainer[data-id="${projectId}"]`);
+            console.log(selectedProject);
             lowerSection.removeChild(selectedProject);
-            projectList.splice(projectId, 1);
+            projectList.splice(projectId, 1,{});
         });
     });
 

@@ -8,6 +8,7 @@ export function deleteButton(projectId, projectList, home) {
                 let display = document.querySelector("#display");
                 display.removeChild(selectedTask);
                 home.deleteTask(taskId);
+                event.stopImmediatePropagation()
 
 
             } else {
@@ -15,6 +16,7 @@ export function deleteButton(projectId, projectList, home) {
                 let display = document.querySelector("#display");
                 display.removeChild(selectedTask);
                 projectList[projectId].deleteTask(taskId);
+                event.stopImmediatePropagation()
 
 
             }
@@ -27,7 +29,7 @@ export function deleteButton(projectId, projectList, home) {
 
 export function completeButton(projectId, projectList, home) {
     let completedButtons = document.querySelectorAll(".completedButton");
-    completedButtons.forEach((button) => {
+    completedButtons.forEach(function(button) {
         button.addEventListener("click", () => {
             let taskId = button.getAttribute("data-id");
             if (projectId == -1) {
@@ -38,12 +40,14 @@ export function completeButton(projectId, projectList, home) {
                     console.log("false"+task);
                     task.setCompleted(true);
                     selectedTask.classList.add("completed");
+                    event.stopImmediatePropagation()
                     
 
                 } else if (task.isComplete() == true) {
                     console.log("true"+task);
                     task.setCompleted(false);
                     selectedTask.classList.remove("completed");
+                    event.stopImmediatePropagation()
                     
 
                 }
@@ -58,12 +62,14 @@ export function completeButton(projectId, projectList, home) {
                 if (task.isComplete() == false) {
                     task.setCompleted(true);
                     selectedTask.classList.add("completed");
+                    event.stopImmediatePropagation()
                     
                     
 
                 } else if (task.isComplete() == true) {
                     task.setCompleted(false);
                     selectedTask.classList.remove("completed");
+                    event.stopImmediatePropagation()
                     
                 }
             }
