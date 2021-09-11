@@ -1,4 +1,4 @@
-export function deleteButton(projectId, projectList, home) {
+export function deleteButton(projectId, projectList, home, clearDisplay, renderTasks) {
     let deleteButtons = document.querySelectorAll(".deleteButton");
     deleteButtons.forEach(button => {
         button.addEventListener("click", () => {
@@ -8,7 +8,9 @@ export function deleteButton(projectId, projectList, home) {
                 let display = document.querySelector("#display");
                 display.removeChild(selectedTask);
                 home.deleteTask(taskId);
-                event.stopImmediatePropagation()
+                clearDisplay();
+                renderTasks(home);
+                event.stopImmediatePropagation();
 
 
             } else {
@@ -16,7 +18,9 @@ export function deleteButton(projectId, projectList, home) {
                 let display = document.querySelector("#display");
                 display.removeChild(selectedTask);
                 projectList[projectId].deleteTask(taskId);
-                event.stopImmediatePropagation()
+                clearDisplay();
+                renderTasks(projectList[projectId]);
+                event.stopImmediatePropagation();
 
 
             }
@@ -40,14 +44,14 @@ export function completeButton(projectId, projectList, home) {
                     console.log("false"+task);
                     task.setCompleted(true);
                     selectedTask.classList.add("completed");
-                    event.stopImmediatePropagation()
+                    event.stopImmediatePropagation();
                     
 
                 } else if (task.isComplete() == true) {
                     console.log("true"+task);
                     task.setCompleted(false);
                     selectedTask.classList.remove("completed");
-                    event.stopImmediatePropagation()
+                    event.stopImmediatePropagation();
                     
 
                 }
@@ -62,14 +66,14 @@ export function completeButton(projectId, projectList, home) {
                 if (task.isComplete() == false) {
                     task.setCompleted(true);
                     selectedTask.classList.add("completed");
-                    event.stopImmediatePropagation()
+                    event.stopImmediatePropagation();
                     
                     
 
                 } else if (task.isComplete() == true) {
                     task.setCompleted(false);
                     selectedTask.classList.remove("completed");
-                    event.stopImmediatePropagation()
+                    event.stopImmediatePropagation();
                     
                 }
             }
@@ -77,4 +81,21 @@ export function completeButton(projectId, projectList, home) {
         });
     });
 
+}
+export function deleteProject(projectList, clearDisplay) {
+    
+    let deleteButtons = document.querySelectorAll(".deleteProjectButton");
+    deleteButtons.forEach(button =>{
+        button.addEventListener("click", ()=>{
+            let lowerSection = document.querySelector("#lowerSection");
+            let projectId = button.getAttribute("data-id");
+            let selectedProject = document.querySelector(`.projectButtonContainer[data-id="${projectId}"]`);
+            lowerSection.removeChild(selectedProject);
+            projectList.splice(projectId, 1,{});
+            clearDisplay();
+            event.stopImmediatePropagation();
+        });
+    });
+
+    
 }

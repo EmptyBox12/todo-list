@@ -62,9 +62,6 @@
     width: 100%;
     background-color: rgba(0,0,0,0.4);
 
-    
-
-
 }
 #modalContent{
     position: relative;
@@ -133,10 +130,11 @@
     padding: 20px;
     border: 1px solid #888;
     border-radius: 15px;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height:50%;
-    width: 340px;
+    height:60%;
+    width: 400px;
     
 }
 
@@ -149,7 +147,16 @@
     outline: none;
     padding-left: 7px;
     
+    
 }
+#taskDescriptionInput{
+    height: 5rem;
+    text-align: start;
+    overflow: auto;
+    
+    
+}
+
 
 #submitTaskButton{
     margin-top: 10px;
@@ -164,6 +171,167 @@
     filter: brightness(0.95);
 }
 #submitTaskButton:active{
+    filter:brightness(0.9);
+}
+
+#modalEditTask{
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top:130px ;
+    height:100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+
+}
+#modalContentTaskEdit{
+    position: relative;
+    margin: auto;
+    background-color: #fefefe;
+    display: flex;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 15px;
+    flex-direction: column;
+    justify-content: space-around;
+    height:60%;
+    width: 400px;
+    
+}
+
+#taskNameEditInput, #taskDescriptionEditInput,#priorityEditInput,#taskDateEditInput{
+    height: 30px;
+    font-size: 17px;
+    font-weight: 540;
+    border:black solid 1px;
+    border-radius: 9px;
+    outline: none;
+    padding-left: 7px;
+    
+}
+#taskDescriptionEditInput{
+    height: 5rem;
+    text-align: start;
+    overflow: auto;
+    
+    
+}
+
+#submitTaskEditButton{
+    margin-top: 10px;
+    height: 30px;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #bdc3c7;
+}
+#submitTaskButton:hover{
+    filter: brightness(0.95);
+}
+#submitTaskButton:active{
+    filter:brightness(0.9);
+}
+
+#modalDetails{
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top:100px ;
+    height:100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+
+}
+#modalContentDetails{
+    position: relative;
+    margin: auto;
+    background-color: #fefefe;
+    display: flex;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 15px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height:75%;
+    width:30rem;
+    font-size: 15px;
+    font-weight: bold;
+    
+}
+.nameContainer{
+    width: 90%;
+    text-align: center;
+    font-family:sans-serif;
+}
+.detailName{
+    border: black 1px solid;
+    font-size: 17px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    font-weight: initial;
+}
+.descriptionContainer{
+    width: 95%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.detailDescription{
+    border: black 1px solid;
+    font-size: 16px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 20px;
+    overflow:auto;
+    text-align:start;
+    font-weight: initial;
+}
+.dateContainer{
+    width: 90%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.detailDate{
+    border: black 1px solid;
+    font-size: 17px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    font-weight: initial;
+}
+.priorityContainer{
+    width: 90%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.detailPriority{
+    border: black 1px solid;
+    font-size: 17px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    font-weight: initial;
+}
+.closeDetail{
+    margin-top: 10px;
+    height: 30px;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    width:75% ;
+    background-color: #bdc3c7;
+}
+.closeDetail:hover{
+    filter: brightness(0.95);
+}
+.closeDetail:active{
     filter:brightness(0.9);
 }
 
@@ -184,7 +352,7 @@
     display: flex;
     margin-top: 10px;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width:95%;
     height: 70px;
     border: black 2px solid;
@@ -197,6 +365,8 @@
     align-items: center;
     margin-left: 30px;
     height:100%;
+    max-width:50%;
+    overflow:hidden;
 
 }
 .firstButtons{
@@ -226,8 +396,11 @@
 }
 .firstText{
     margin-left: 10px;
+    margin-bottom: 5px;
     font-size: 15px;
+    max-height:100%;
     font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 .completed{
     text-decoration:line-through black solid 2px;
@@ -242,8 +415,52 @@
 }
 .secondPart{
     margin-right: 30px;
-    font-size: 15px;
+    display: flex;
+    align-items: center;
+    height:100%;
+    max-width:50%;
+    overflow:hidden;
 }
+.secondButtons{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.detailsButton{
+    border-radius: 50px;
+    background-color: skyblue;
+    font-weight: bold;
+    border: none;
+    border: black 1px solid;
+}
+.editButton{
+    background-image: url("./editIcon.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 20px;
+    border: none;
+    border-radius: 50px;
+
+}
+.detailsButton:hover,.editButton:hover{
+    filter: brightness(0.9);
+}
+.detailsButton:active,.editButton:active{
+    filter: brightness(0.8);
+}
+.secondText{
+    margin-right: 15px;
+    margin-bottom: 7px;
+    text-align: center;
+    font-size: 15px;
+    max-height:100%;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
 #navBar{
     height:100%;
     width: 17vw;

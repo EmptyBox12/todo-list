@@ -29,13 +29,47 @@
             <div id="modalContentTask">
                 <p>Name of the Task</p>
                 <input type="text" value="" placeholder="Name" id="taskNameInput">
-                <p>Short description of the Task</p>
-                <input type="text" value="" placeholder="Description" id="taskDescriptionInput">
+                <p>Description of the Task</p>
+                <textarea id="taskDescriptionInput" name="w3review" rows="4" cols="50"></textarea>
                 <p>Date of the Task</p>
                 <input type="date" name="trip-start" value="" id="taskDateInput">
                 <p>Priority of the Task</p>
                 <input type="text" value="" placeholder="Priority" id="priorityInput">
                 <input type="submit" value="Submit" id="submitTaskButton">
+            </div>
+        </div>
+        <div id="modalEditTask">
+            <div id="modalContentTaskEdit">
+                <p>New Name of the Task</p>
+                <input type="text" value="" placeholder="Name" id="taskNameEditInput">
+                <p>New Description of the Task</p>
+                <textarea id="taskDescriptionEditInput" name="w3review" rows="4" cols="50"></textarea>
+                <p>New Date of the Task</p>
+                <input type="date" name="trip-start" value="" id="taskDateEditInput">
+                <p>New Priority of the Task</p>
+                <input type="text" value="" placeholder="Priority" id="priorityEditInput">
+                <input type="submit" value="Submit" id="submitTaskEditButton">
+            </div>
+        </div>
+        <div id="modalDetails">
+            <div id="modalContentDetails">
+                <div class="nameContainer">
+                    <p>Name of the Task</p>
+                    <p class="detailName">Learn JavaScript</p>
+                </div>
+                <div class="descriptionContainer">
+                    <p>Decription of the Task</p>
+                    <p class="detailDescription">First I have to learn about html and css then I should start learninig about JavaScript then node.js and back end hmmm lots of stuff to learn I should start learninig about JavaScript then node.js and back end hmmm lots of stuff to lear I should start learninig about JavaScript then node.js and back end hmmm lots of stuff to lear I should start learninig about JavaScript then node.js and back end hmmm lots of stuff to lear I should start learninig about JavaScript then node.js and back end hmmm lots of stuff to lear I should start learninig about JavaScript then node.js and back end hmmm lots of stuff to l</p>
+                </div>
+                <div class="dateContainer">
+                    <p>Date of the Task</p>
+                    <p class="detailDate">Date of the Task</p>
+                </div>
+                <div class="priorityContainer">
+                    <p>Priority of the Task</p>
+                    <p class="detailPriority">Priority of the Task</p>
+                </div>
+                <button class="closeDetail">Close</button>
             </div>
         </div>
         <div id="navBar">
@@ -56,12 +90,18 @@
                     </div>
                     <div class="firstText">
                         <p class="title">Learn JavaScript</p>
-                        <p>Complete the first part of Odin Project</p>
+                        <p class="description">Complete theecv</p>
                     </div>
                 </div>
                 <div class="secondPart">
-                    <p class="date">28/12/1998</p>
-                    <p>Important</p>
+                    <div class="secondText">
+                        <p class="date">28/12/1998</p>
+                        <p class="priority">Important</p>
+                    </div>
+                    <div class="secondButtons">
+                        <button class="detailsButton">...</button>
+                        <button class="editButton"></button>
+                    </div>
                 </div>
             </div>-->
         </div>

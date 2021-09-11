@@ -43,11 +43,37 @@ export default function createTaskCard(title, description, date,priority, id, co
     priorityP.textContent=priority;
     priorityP.classList.add("priority");
 
+    let secondText = document.createElement("div");
+    secondText.classList.add("secondText");
+    secondText.appendChild(dateP);
+    secondText.appendChild(priorityP);
+
+    let detailsButton = document.createElement("button");
+    detailsButton.textContent="...";
+    detailsButton.classList.add("detailsButton");
+    detailsButton.setAttribute("data-id",id);
+
+    let editButton = document.createElement("button");
+    editButton.classList.add("editButton");
+    const editTaskModal = document.querySelector("#modalEditTask");
+    const submitEdit = document.querySelector("#submitTaskEditButton");
+    editButton.addEventListener("click", () => {
+        editTaskModal.style.display = "block";
+        submitEdit.setAttribute("data-id", id);
+
+    });
+
+    let secondButtons = document.createElement("div");
+    secondButtons.classList.add("secondButtons");
+    secondButtons.appendChild(detailsButton);
+    secondButtons.appendChild(editButton);
+
     let secondPart = document.createElement("div");
     secondPart.classList.add("secondPart");
+    secondPart.appendChild(secondText);
+    secondPart.appendChild(secondButtons);
     
-    secondPart.appendChild(dateP);
-    secondPart.appendChild(priorityP);
+  
 
     let task = document.createElement("div");
     task.classList.add("task");
