@@ -1,21 +1,24 @@
-export default class Project{
-    constructor(name){
-        this.name=name;
-        this.taskList=[];
+export default class Project {
+    constructor(name) {
+        this.name = name;
+        this.taskList = [];
     }
-    getName(){
+    getName() {
         return this.name;
     }
-    addTask(task){
+    addTask(task) {
         this.taskList.push(task);
     }
-    getTaskList(){
+    getTaskList() {
         return this.taskList;
     }
-    getTask(index){
+    getTask(index) {
         return this.taskList[index];
     }
-    deleteTask(index){
-        this.taskList.splice(index,1);
+    setTaskList(newTaskList){
+        this.taskList = newTaskList;
+    }
+    deleteTask(index) {
+        this.taskList.splice(index, 1);
     }
 }

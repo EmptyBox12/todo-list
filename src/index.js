@@ -15,9 +15,51 @@ const editTaskModal = document.querySelector("#modalEditTask");
 const submitEdit = document.querySelector("#submitTaskEditButton");
 const closeDetail = document.querySelector(".closeDetail");
 let detailModal = document.querySelector("#modalDetails");
+window.localStorage;
+let storedProjectsNF = JSON.parse(localStorage.getItem("project") || "[]");
+let storedProjects = storedProjectsNF.filter(item => Object.keys(item).length !== 0);
+let homeTaskStorage = JSON.parse(localStorage.getItem("homeTask") || "[]");
+let taskStorage = [];
+let tempHomeTaskStorage = [];
 
 let home = new Project("home");
 let projectList = [];
+
+
+
+function typecast(Class, obj) {
+    let t = new Class()
+    return Object.assign(t, obj)
+}
+
+homeTaskStorage.forEach(task => {
+    tempHomeTaskStorage.push(typecast(Task, task));
+});
+home.setTaskList(tempHomeTaskStorage);
+tempHomeTaskStorage = [];
+
+storedProjects.forEach(project => {
+    let newProject = typecast(Project, project);
+
+    newProject.getTaskList().forEach(task => {
+        taskStorage.push(typecast(Task, task));
+    });
+    newProject.setTaskList(taskStorage);
+    taskStorage = [];
+    projectList.push(newProject);
+
+});
+
+
+function renderProjects() {
+    projectList.forEach(project => {
+        projectCardCreator(project.getName(), projectList.indexOf(project));
+        projectButton();
+        deleteProject(projectList, clearDisplay);
+    });
+
+
+}
 
 createProject.addEventListener("click", () => {
     modalCreateProject.style.display = "block";
@@ -32,7 +74,7 @@ window.addEventListener("click", function (event) {
 
     } else if (event.target == editTaskModal) {
         editTaskModal.style.display = "none";
-    } else if (event.target == detailModal){
+    } else if (event.target == detailModal) {
         detailModal.style.display = "none";
     }
 });
@@ -41,10 +83,12 @@ submitProject.addEventListener("click", () => {
     let projectName = projectNameInput.value;
     let newProject = new Project(projectName);
     projectList.push(newProject);
+    localStorage.setItem("project", JSON.stringify(projectList));
     projectCardCreator(newProject.getName(), projectList.indexOf(newProject));
     projectButton();
     deleteProject(projectList, clearDisplay);
     modalCreateProject.style.display = "none";
+
 });
 
 function projectButton() {
@@ -101,10 +145,13 @@ submitTask.addEventListener("click", () => {
         home.addTask(newTask);
         clearDisplay();
         renderTasks(home);
+        localStorage.setItem("homeTask", JSON.stringify(home.taskList));
+
     } else {
         projectList[id].addTask(newTask);
         clearDisplay();
         renderTasks(projectList[id]);
+        localStorage.setItem("project", JSON.stringify(projectList));
 
     }
     addTaskModal.style.display = "none";
@@ -122,6 +169,8 @@ submitEdit.addEventListener("click", () => {
         task.setDescription(newDescriptionInput.value);
         task.setDate(newDateInput.value);
         task.setPriority(newPriorityInput.value);
+        localStorage.setItem("homeTask", JSON.stringify(home.taskList));
+
 
 
     } else {
@@ -130,11 +179,13 @@ submitEdit.addEventListener("click", () => {
         task.setDescription(newDescriptionInput.value);
         task.setDate(newDateInput.value);
         task.setPriority(newPriorityInput.value);
+        localStorage.setItem("project", JSON.stringify(projectList));
+
     }
 
     editTaskModal.style.display = "none";
     clearDisplay();
-    if(projectId =="home"){
+    if (projectId == "home") {
         renderTasks(home);
     }
     renderTasks(projectList[projectId]);
@@ -169,12 +220,13 @@ function showDetails(projectId) {
         });
     });
 }
-closeDetail.addEventListener("click",()=>{
+closeDetail.addEventListener("click", () => {
     detailModal.style.display = "none";
 });
 
 function start() {
     renderTasks(home);
+    renderProjects();
 }
 
 

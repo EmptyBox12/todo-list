@@ -10,6 +10,7 @@ export function deleteButton(projectId, projectList, home, clearDisplay, renderT
                 home.deleteTask(taskId);
                 clearDisplay();
                 renderTasks(home);
+                localStorage.setItem("homeTask", JSON.stringify(home.taskList));
                 event.stopImmediatePropagation();
 
 
@@ -20,7 +21,9 @@ export function deleteButton(projectId, projectList, home, clearDisplay, renderT
                 projectList[projectId].deleteTask(taskId);
                 clearDisplay();
                 renderTasks(projectList[projectId]);
+                localStorage.setItem("project", JSON.stringify(projectList));
                 event.stopImmediatePropagation();
+                
 
 
             }
@@ -44,6 +47,7 @@ export function completeButton(projectId, projectList, home) {
                     console.log("false"+task);
                     task.setCompleted(true);
                     selectedTask.classList.add("completed");
+                    localStorage.setItem("homeTask", JSON.stringify(home.taskList));
                     event.stopImmediatePropagation();
                     
 
@@ -51,6 +55,7 @@ export function completeButton(projectId, projectList, home) {
                     console.log("true"+task);
                     task.setCompleted(false);
                     selectedTask.classList.remove("completed");
+                    localStorage.setItem("homeTask", JSON.stringify(home.taskList));
                     event.stopImmediatePropagation();
                     
 
@@ -66,6 +71,7 @@ export function completeButton(projectId, projectList, home) {
                 if (task.isComplete() == false) {
                     task.setCompleted(true);
                     selectedTask.classList.add("completed");
+                    localStorage.setItem("project", JSON.stringify(projectList));
                     event.stopImmediatePropagation();
                     
                     
@@ -73,6 +79,7 @@ export function completeButton(projectId, projectList, home) {
                 } else if (task.isComplete() == true) {
                     task.setCompleted(false);
                     selectedTask.classList.remove("completed");
+                    localStorage.setItem("project", JSON.stringify(projectList));
                     event.stopImmediatePropagation();
                     
                 }
@@ -93,6 +100,7 @@ export function deleteProject(projectList, clearDisplay) {
             lowerSection.removeChild(selectedProject);
             projectList.splice(projectId, 1,{});
             clearDisplay();
+            localStorage.setItem("project", JSON.stringify(projectList));
             event.stopImmediatePropagation();
         });
     });
