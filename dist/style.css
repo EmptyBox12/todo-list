@@ -153,10 +153,7 @@
     height: 5rem;
     text-align: start;
     overflow: auto;
-    
-    
 }
-
 
 #submitTaskButton{
     margin-top: 10px;
@@ -347,6 +344,7 @@
     flex: 5;
     width: 100%;
     margin: 5px;
+    overflow: auto;
 }
 .task{
     display: flex;
@@ -358,6 +356,7 @@
     border: black 2px solid;
     border-radius: 30px;
     background-color: #cacecf;
+    flex-shrink: 0;
 
 }
 .firstPart{
